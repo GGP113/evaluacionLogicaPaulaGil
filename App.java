@@ -27,7 +27,7 @@ public class App {
         Scanner sc = new Scanner(System.in);
 
         System.out.println("\n Escriba 1, 2 ó 3 de acuerdo con el tratamiento que desea realizar:\n \n \t 1) Tratamiento facial "+
-        "\n \t 2) Cirugía menor "+ "\n \t 3)  Plan anual de belleza");
+        "\n \t 2) Cirugía menor "+ "\n \t 3) Plan anual de belleza");
 
         treatment = sc.nextInt();
 
@@ -135,7 +135,7 @@ public class App {
                     
                     msgDiscount ="No tienes descuento";
                 } 
-                else{
+                else if(procedureType==2){
 
                     discount = 0.3;
     
@@ -145,7 +145,7 @@ public class App {
                     
                     msgDiscount ="30% de descuento por procedimientos reconstructivos";
 
-                }
+                } else{ System.out.println("ERROR!, la opción ingresadano es vaida");}
 
 
                 System.out.println( " \n El tratamiento que seleccionó fue: "+msg+   "\n Originalmente el tratamiento cuesta: "+ costInit +" \n Luego de descuentos tendrá un costo de "+cost+
@@ -156,13 +156,50 @@ public class App {
             
             case 3:
 
+                costInit=900000;
+
                 System.out.println("\n La opción seleccionada fue: 3) Plan anual de belleza \n");
                 msg="3) Plan anual de belleza";
-        
+
+                System.out.println("Ingrese su edad: \n");
+                age=sc.nextInt();
+
+                if(age<=25){
+
+                    discount = 0.1;
+    
+                    discountTotal = discount*costInit;
+
+                    cost = costInit-discountTotal;
+                    
+                    msgDiscount ="10% de descuento por plan joven con tarifa reducida";
+
+
+                } else{
+
+
+                    discount = 0.0;
+    
+                    discountTotal = discount*costInit;
+
+                    cost = costInit-discountTotal;
+                    
+                    msgDiscount ="No tienes descuento, aplica plan estándar";
+
+
+                }
+
+                System.out.println("\n\nLa edad ingresada fue: "+ age);
+
+                System.out.println( " \n El tratamiento que seleccionó fue: "+msg+   "\n Originalmente el tratamiento cuesta: "+ costInit +" \n Luego de descuentos tendrá un costo de "+cost+
+                "\n \n A continuación un resumen de los descuentos aplicados:\n \n "+msgDiscount + " \n Descuento total: "+ discountTotal);
+
+
+
                 break;
 
 
-                
+
         
             default:
                 System.out.println("ERROR!, la opcion ingresada no es valida. ");
