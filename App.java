@@ -10,8 +10,8 @@ public class App {
 
         /* */
 
-        String  procedureType, msg, msgDiscount;
-        int age, treatment,skinType ;
+        String   msg, msgDiscount;
+        int age, treatment,skinType, procedureType ;
         double cost, discount, discountTotal, costInit;
 
         msg ="";
@@ -114,9 +114,43 @@ public class App {
                 break;
             
             case 2:
+                costInit=500000;
 
                 System.out.println("\n La opción seleccionada fue: 2) Cirugía menor \n");
                 msg="2) Cirugía menor";
+
+
+                System.out.println("Ingrese 1 ó 2 de acuerdo con la opción deseada: \n \t 1) Procedimientos estéticos"+
+                "\n \t 2) Procedimientos reconstructivos");
+
+                procedureType=sc.nextInt();
+
+                if(procedureType==1){
+
+                    discount = 0.0;
+    
+                    discountTotal = discount*costInit;
+
+                    cost = costInit-discountTotal;
+                    
+                    msgDiscount ="No tienes descuento";
+                } 
+                else{
+
+                    discount = 0.3;
+    
+                    discountTotal = discount*costInit;
+
+                    cost = costInit-discountTotal;
+                    
+                    msgDiscount ="30% de descuento por procedimientos reconstructivos";
+
+                }
+
+
+                System.out.println( " \n El tratamiento que seleccionó fue: "+msg+   "\n Originalmente el tratamiento cuesta: "+ costInit +" \n Luego de descuentos tendrá un costo de "+cost+
+                    "\n \n A continuación un resumen de los descuentos aplicados:\n \n "+msgDiscount + " \n Descuento total: "+ discountTotal);
+
             
                 break;
             
@@ -126,6 +160,9 @@ public class App {
                 msg="3) Plan anual de belleza";
         
                 break;
+
+
+                
         
             default:
                 System.out.println("ERROR!, la opcion ingresada no es valida. ");
