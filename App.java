@@ -8,7 +8,7 @@ public class App {
 
         //Caso 7: Clínica Estética
 
-        /* */
+        /* Declaración de variables*/
 
         String   msg, msgDiscount;
         int age, treatment,skinType, procedureType ;
