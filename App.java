@@ -48,9 +48,21 @@ public class App {
                
 
                 System.out.println("\n ingrese su tipo de piel de acuerdo con las siguientes opciones"+
-                                    "\n \t 1) sensible \n \t 2)otro");
+                                    "\n \t 1) sensible \n \t 2) otro");
 
                 skinType=sc.nextInt();
+
+                if(skinType > 2){ 
+                    
+                    System.out.println("ERROR!, la opcion ingresada no es valida.\n, ingrese de nuevo su tipo de piel \n " +
+                "\n \t 1) sensible \n \t 2) otro");
+
+                skinType=sc.nextInt();
+            
+                }
+
+
+
 
                 if(age>50 && skinType != 1){
 
@@ -64,7 +76,21 @@ public class App {
 
                 } 
                 
-                else if(skinType == 1 && age<50){
+      
+                else  if(skinType == 1 && age>50){
+
+                    discount = 0.35;
+
+                    discountTotal = discount*costInit;
+
+                    cost = costInit-discountTotal;
+                    
+                    msgDiscount ="35% de descuento por edad y piel sensible";
+
+
+                }
+
+                    else if(skinType == 1 ){
 
                         discount = 0.15;
     
@@ -74,19 +100,8 @@ public class App {
                         msgDiscount ="15% de descuento por piel sensible";
                         
                     }
-                
-                    else  if(skinType == 1 && age>50){
 
-                        discount = 0.35;
-    
-                        discountTotal = discount*costInit;
-    
-                        cost = costInit-discountTotal;
-                        
-                        msgDiscount ="35% de descuento por edad y piel sensible";
-    
-    
-                    }
+                    
 
                     else{
 
@@ -164,7 +179,7 @@ public class App {
                 System.out.println("Ingrese su edad: \n");
                 age=sc.nextInt();
 
-                if(age<=25){
+                if(age<25){
 
                     discount = 0.1;
     
